@@ -1,0 +1,9 @@
+{
+  "lang": "en-US",
+  "short_name": "Real-Time Transcriptions",
+  "name": "Real-Time Transcription Web App",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#001529",
+  "background_color": "#ffffff"
+}
