@@ -1,7 +1,7 @@
 {
   "lang": "en-US",
-  "short_name": "Real-Time Transcriptions",
-  "name": "Real-Time Transcription Web App",
+  "short_name": "Voicebot Readout",
+  "name": "Voicebot Readout",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#001529",

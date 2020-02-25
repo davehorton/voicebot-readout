@@ -1,5 +1,5 @@
 {
-  "name": "real-time-transcription-web-app",
+  "name": "voicebot-readout",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
