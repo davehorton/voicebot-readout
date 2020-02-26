@@ -20,7 +20,8 @@ export default class CallListPanel extends Component {
         style={{
           background: '#001529',
           color: '#FFFFFF',
-          minHeight: '100vh',
+          height: '100vh',
+          overflowY: 'auto',
         }}
       >
         <Icon
