@@ -17,17 +17,6 @@ const MenuHeaderSpan = props => (
   </span>
 );
 
-const MenuSpan = props => (
-  <span
-    style={{
-      paddingRight: '24px',
-      ...props.style,
-    }}
-  >
-    {props.children}
-  </span>
-);
-
 export default props => {
 
   // Split props used in this component from props to be handed down
@@ -63,10 +52,10 @@ export default props => {
               <MenuHeaderSpan style={{ flexGrow: 1 }}>Agent</MenuHeaderSpan>
             </React.Fragment>
           : <React.Fragment>
-              <MenuSpan style={{ width: '5rem' }}>{timeFormat(start)}</MenuSpan>
-              <MenuSpan style={{ width: '5rem' }}>{stop ? timeFormat(stop) : ''}</MenuSpan>
-              <MenuSpan style={{ width: '8rem' }}>{phoneNumberFormat(callingNumber)}</MenuSpan>
-              <MenuSpan style={{ flexGrow: 1 }}>{agent}</MenuSpan>
+              <span style={{ width: '5rem' }}>{timeFormat(start)}</span>
+              <span style={{ width: '5rem' }}>{stop ? timeFormat(stop) : ''}</span>
+              <span style={{ width: '8rem' }}>{phoneNumberFormat(callingNumber)}</span>
+              <span style={{ flexGrow: 1 }}>{agent}</span>
             </React.Fragment>
       }
     </Menu.Item>
