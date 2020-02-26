@@ -57,15 +57,15 @@ export default props => {
       {
         props.header
           ? <React.Fragment>
-              <MenuHeaderSpan style={{ width: '4rem' }}>Start</MenuHeaderSpan>
+              <MenuHeaderSpan style={{ width: '5rem' }}>Start</MenuHeaderSpan>
               <MenuHeaderSpan style={{ width: '5rem' }}>End</MenuHeaderSpan>
-              <MenuHeaderSpan style={{ width: '7rem' }}>From</MenuHeaderSpan>
+              <MenuHeaderSpan style={{ width: '8rem' }}>From</MenuHeaderSpan>
               <MenuHeaderSpan style={{ flexGrow: 1 }}>Agent</MenuHeaderSpan>
             </React.Fragment>
           : <React.Fragment>
-              <MenuSpan style={{ width: '4rem' }}>{timeFormat(start)}</MenuSpan>
+              <MenuSpan style={{ width: '5rem' }}>{timeFormat(start)}</MenuSpan>
               <MenuSpan style={{ width: '5rem' }}>{stop ? timeFormat(stop) : ''}</MenuSpan>
-              <MenuSpan style={{ width: '7rem' }}>{phoneNumberFormat(callingNumber)}</MenuSpan>
+              <MenuSpan style={{ width: '8rem' }}>{phoneNumberFormat(callingNumber)}</MenuSpan>
               <MenuSpan style={{ flexGrow: 1 }}>{agent}</MenuSpan>
             </React.Fragment>
       }
