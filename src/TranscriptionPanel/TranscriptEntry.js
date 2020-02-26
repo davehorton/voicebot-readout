@@ -15,7 +15,7 @@ export default props => {
   return (
     <div
       style={{
-        paddingBottom: '1rem',
+        marginBottom: '0.5rem',
         display: 'flex',
         justifyContent,
       }}
