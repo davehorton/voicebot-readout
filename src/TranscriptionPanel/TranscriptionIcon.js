@@ -14,6 +14,7 @@ export default props => (
       order: props.type === 'prompt' && 2,
       fontSize: props.type === 'transcript' ? '35px' : '25px',
       display: 'flex',
+      flexShrink: '0',
       justifyContent: 'center',
       alignItems: props.type === 'transcript' ? 'flex-end' : 'center',
     }}
