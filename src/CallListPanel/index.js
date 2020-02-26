@@ -21,6 +21,7 @@ export default class CallListPanel extends Component {
           height: '100vh',
           overflowY: 'auto',
           maxWidth: '50%',
+          boxShadow: '0 0 2px rgba(0, 0, 0, 0.15), 0 0 1rem rgba(0, 0, 0, 0.05)',
         }}
       >
         <Icon
