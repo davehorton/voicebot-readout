@@ -18,8 +18,7 @@ export default class CallListPanel extends Component {
       <Col
         span={12}
         style={{
-          background: '#001529',
-          color: '#FFFFFF',
+          background: '#FFFFFF',
           height: '100vh',
           overflowY: 'auto',
         }}
@@ -27,15 +26,14 @@ export default class CallListPanel extends Component {
         <Icon
           type="setting"
           style={{
-            margin: '16px',
+            margin: '24px 24px 16px',
             opacity: 0.65,
             fontSize: '26px',
           }}
         />
 
         <Menu
-          mode="vertical"
-          theme="dark"
+          mode="inline"
           selectedKeys={this.props.selectedCall}
         >
           <MenuItem header />

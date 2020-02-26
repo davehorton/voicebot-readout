@@ -8,7 +8,7 @@ const MenuHeaderSpan = props => (
   <span
     style={{
       paddingRight: '24px',
-      color: '#FFFFFF',
+      color: '#000000',
       fontWeight: 'bold',
       ...props.style,
     }}
