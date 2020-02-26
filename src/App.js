@@ -8,7 +8,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      selectedCall: '3b86ecd3-65db-4eb8-a624-5fb0a86cac77',
+      selectedCall: null,
       calls: [
         {
           "uuid": "3b86ecd3-65db-4eb8-a624-5fb0a86cac77",
@@ -53,7 +53,13 @@ class App extends Component {
         },
       ],
     };
+    this.selectCall = this.selectCall.bind(this);
   }
+
+  selectCall(uuid) {
+    this.setState({ selectedCall: uuid });
+  }
+
   render() {
     return (
       <Layout style={{ minHeight: '100vh' }}>
@@ -61,6 +67,7 @@ class App extends Component {
           <CallListPanel
             selectedCall={this.state.selectedCall}
             calls={this.state.calls}
+            selectCall={this.selectCall}
           />
           <TranscriptionPanel
             selectedCall={this.state.selectedCall}
