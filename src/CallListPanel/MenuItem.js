@@ -51,7 +51,7 @@ export default props => {
   // Split props used in this component from props to be handed down
   const {
     header,
-    startTime,
+    start,
     callingNumber,
     agent,
     status,
@@ -79,7 +79,7 @@ export default props => {
               <MenuHeaderSpan style={{ width: '6rem' }}>Status</MenuHeaderSpan>
             </React.Fragment>
           : <React.Fragment>
-              <MenuSpan style={{ width: '4rem' }}>{timeFormat(startTime)}</MenuSpan>
+              <MenuSpan style={{ width: '4rem' }}>{timeFormat(start)}</MenuSpan>
               <MenuSpan style={{ width: '7rem' }}>{phoneNumberFormat(callingNumber)}</MenuSpan>
               <MenuSpan style={{ flexGrow: 1 }}>{agent}</MenuSpan>
               <Status status={status} />

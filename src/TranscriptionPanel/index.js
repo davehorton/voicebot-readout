@@ -4,24 +4,8 @@ import { Col, Icon } from 'antd';
 import TranscriptEntry from './TranscriptEntry';
 
 export default class TranscriptionPanel extends Component {
-  constructor() {
-    super();
-    this.state = {
-      transcriptEntries: [],
-    };
-  }
-  componentDidMount() {
-    const tempItems = [
-      ...this.props.transcripts,
-      ...this.props.intents,
-    ];
-    const sortedItems = [...tempItems].sort((a,b) => {
-      return new Date(a.time) - new Date(b.time);
-    });
-    this.setState({ transcriptEntries: sortedItems });
-  }
   render() {
-    return !this.props.transcripts.length && !this.props.intents.length ? (
+    return !this.props.transcriptEvents.length ? (
       <Col
         span={12}
         style={{
@@ -76,12 +60,16 @@ export default class TranscriptionPanel extends Component {
           overflowY: 'scroll',
         }}
       >
-        {this.state.transcriptEntries.map(t => (
-          <TranscriptEntry
-            key={t.uuid}
-            t={t}
-          />
-        ))}
+        {this.props.transcriptEvents
+          // Remove intents that don't have data
+          .filter(t => t.data)
+          .map(t => (
+            <TranscriptEntry
+              key={t.uuid}
+              t={t}
+            />
+          ))
+        }
       </Col>
     );
   }

@@ -5,24 +5,22 @@ import timeFormat from '../util/time-format';
 export default props => {
 
   const background =
-    props.t.speaker === 'caller'
+    props.t.type === 'transcript'
       ? '#87C5FF'
-      : props.t.speaker === 'callee'
+      : props.t.type === 'prompt'
         ? '#DDDDDD'
         : '#F67B8A';
-
-  const intentName = props.t.name &&
-    props.t.name.charAt(0).toUpperCase() + props.t.name.slice(1);
 
   return (
     <div
       style={{
-        maxWidth: !intentName && '25rem',
+        maxWidth: props.t.type === 'intent' ? '100%' : '25rem',
+        overflowWrap: 'break-word',
         padding: '1rem',
         borderRadius: '0.25rem',
         background,
         boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.5)',
-        textAlign: intentName && 'center',
+        textAlign: (props.t.type === 'intent') && 'center',
       }}
 
     >
@@ -31,22 +29,31 @@ export default props => {
           color: '#000000',
           marginBottom: '0.5rem',
         }}
-      >{props.t.text || `Intent: ${intentName}`}</p>
+      >
+        {
+          props.t.type === 'intent'
+            ? `Intent: ${props.t.data}`
+            : props.t.type === 'transcript'
+              ? props.t.data.text
+              : props.t.data
+        }
+      </p>
 
       <p
         style={{
           marginBottom: '0',
         }}
-      >{timeFormat(props.t.time, true)}</p>
+      >{timeFormat(props.t.date, true)}</p>
 
       {
-        props.t.confidence &&
+        // Have to compare against undefined to account for when confidence === 0
+        props.t.data.confidence !== undefined &&
           <p
             style={{
               marginTop: '0.5rem',
               marginBottom: '0',
             }}
-          >Confidence: {props.t.confidence}</p>
+          >Confidence: {props.t.data.confidence}</p>
       }
 
     </div>

@@ -4,10 +4,11 @@ import ChatBox from './ChatBox';
 import TranscriptionIcon from './TranscriptionIcon';
 
 export default props => {
+  const type = props.t.type;
   const justifyContent =
-    props.t.speaker === 'caller'
+    type === 'transcript'
       ? 'flex-start'
-      : props.t.speaker === 'callee'
+      : type === 'prompt'
         ? 'flex-end'
         : 'center';
 
@@ -20,8 +21,8 @@ export default props => {
       }}
     >
       {
-        props.t.speaker &&
-        <TranscriptionIcon speaker={props.t.speaker} />
+        (type === 'transcript' || type === 'prompt') &&
+        <TranscriptionIcon type={type} />
       }
       <ChatBox t={props.t} />
     </div>
