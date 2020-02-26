@@ -66,7 +66,13 @@ export default props => {
               <MenuSpan style={{ width: '5rem' }}>{timeFormat(start)}</MenuSpan>
               <MenuSpan style={{ width: '5rem' }}>{stop ? timeFormat(stop) : ''}</MenuSpan>
               <MenuSpan style={{ width: '8rem' }}>{phoneNumberFormat(callingNumber)}</MenuSpan>
-              <MenuSpan style={{ flexGrow: 1 }}>{agent}</MenuSpan>
+              <MenuSpan style={{
+                flexGrow: 1,
+                flexShrink: 1,
+                overflow: 'hidden',
+                whiteSpace: 'nowrap',
+                textOverflow: 'ellipsis',
+              }}>{agent}</MenuSpan>
             </React.Fragment>
       }
     </Menu.Item>
