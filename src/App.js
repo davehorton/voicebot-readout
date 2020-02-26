@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
-import { Layout, Row } from 'antd';
+import { Layout, Row, message } from 'antd';
 import CallListPanel from './CallListPanel';
 import TranscriptionPanel from './TranscriptionPanel';
 
@@ -15,8 +15,45 @@ class App extends Component {
     this.selectCall = this.selectCall.bind(this);
   }
 
+  ws = new WebSocket('ws://18.130.114.255:8080');
+
+  componentDidMount() {
+    this.ws.onopen = () => {
+      message.success('WebSocket connection has opened successfully')
+    }
+
+    this.ws.onclose = () => {
+      message.info('WebSocket connection has closed')
+    }
+
+    this.ws.onerror = error => {
+      message.error('WebSocket connection error. Please refresh to try again.')
+    }
+
+    this.ws.onmessage = event => {
+      let wsmessage = JSON.parse(event.data);
+      if (wsmessage.type === 'calls') {
+        this.setState({ calls: wsmessage.data})
+      } else {
+        this.setState(state => ({
+          transcriptEvents: [
+            ...state.transcriptEvents,
+            wsmessage,
+          ]
+        }))
+      }
+    }
+  }
+
   selectCall(uuid) {
-    this.setState({ selectedCall: uuid });
+    this.setState({
+      selectedCall: uuid,
+      transcriptEvents: [],
+    });
+    this.ws.send(JSON.stringify({
+      "type": "subscribe",
+      "uuid": uuid
+    }));
   }
 
   render() {
