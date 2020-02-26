@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
-import { Col, Icon, Menu } from 'antd';
+import { Icon, Menu } from 'antd';
 import MenuItem from './MenuItem';
 
 export default class CallListPanel extends Component {
@@ -15,12 +15,12 @@ export default class CallListPanel extends Component {
 
   render() {
     return (
-      <Col
-        span={12}
+      <div
         style={{
           background: '#FFFFFF',
           height: '100vh',
           overflowY: 'auto',
+          maxWidth: '50%',
         }}
       >
         <Icon
@@ -50,7 +50,7 @@ export default class CallListPanel extends Component {
             ))
           }
         </Menu>
-      </Col>
+      </div>
     );
   }
 }

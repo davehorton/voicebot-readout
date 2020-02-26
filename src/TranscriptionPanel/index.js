@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
-import { Col, Icon } from 'antd';
+import { Icon } from 'antd';
 import TranscriptEntry from './TranscriptEntry';
 
 export default class TranscriptionPanel extends Component {
   render() {
     return !this.props.transcriptEvents.length ? (
-      <Col
-        span={12}
+      <div
         style={{
           minHeight: '100vh',
           textAlign: 'center',
@@ -15,6 +14,7 @@ export default class TranscriptionPanel extends Component {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
+          flexGrow: 1,
         }}
       >
         <div
@@ -50,14 +50,14 @@ export default class TranscriptionPanel extends Component {
               : <span>Choose a call<br />on the left</span>
           }
         </h1>
-      </Col>
+      </div>
     ) : (
-      <Col
-        span={12}
+      <div
         style={{
           height: '100vh',
           padding: '56px 16px',
           overflowY: 'scroll',
+          flexGrow: 1,
         }}
       >
         {this.props.transcriptEvents
@@ -70,7 +70,7 @@ export default class TranscriptionPanel extends Component {
             />
           ))
         }
-      </Col>
+      </div>
     );
   }
 }

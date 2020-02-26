@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
-import { Layout, Row, message } from 'antd';
+import { Layout, message } from 'antd';
 import CallListPanel from './CallListPanel';
 import TranscriptionPanel from './TranscriptionPanel';
 
@@ -58,18 +58,21 @@ class App extends Component {
 
   render() {
     return (
-      <Layout style={{ minHeight: '100vh' }}>
-        <Row>
-          <CallListPanel
-            selectedCall={this.state.selectedCall}
-            calls={this.state.calls}
-            selectCall={this.selectCall}
-          />
-          <TranscriptionPanel
-            selectedCall={this.state.selectedCall}
-            transcriptEvents={this.state.transcriptEvents}
-          />
-        </Row>
+      <Layout
+        style={{
+          minHeight: '100vh',
+          flexDirection: 'row',
+        }}
+      >
+        <CallListPanel
+          selectedCall={this.state.selectedCall}
+          calls={this.state.calls}
+          selectCall={this.selectCall}
+        />
+        <TranscriptionPanel
+          selectedCall={this.state.selectedCall}
+          transcriptEvents={this.state.transcriptEvents}
+        />
       </Layout>
     );
   }
