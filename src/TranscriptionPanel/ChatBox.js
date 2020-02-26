@@ -1,5 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
+import timeFormat from '../util/time-format';
 
 export default props => {
 
@@ -36,7 +37,7 @@ export default props => {
         style={{
           marginBottom: '0',
         }}
-      >{props.t.time}</p>
+      >{timeFormat(props.t.time, true)}</p>
 
       {
         props.t.confidence &&

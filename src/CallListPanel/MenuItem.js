@@ -1,6 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import { Menu } from 'antd';
+import timeFormat from '../util/time-format';
 
 const MenuHeaderSpan = props => (
   <span
@@ -46,10 +47,10 @@ export default props => {
       }}
       disabled={props.header}
     >
-      {startTime     ? <MenuSpan>{startTime}</MenuSpan>     : <MenuHeaderSpan>Start</MenuHeaderSpan>}
-      {callingNumber ? <MenuSpan>{callingNumber}</MenuSpan> : <MenuHeaderSpan>From</MenuHeaderSpan>}
-      {agent         ? <MenuSpan>{agent}</MenuSpan>         : <MenuHeaderSpan>Agent</MenuHeaderSpan>}
-      {status        ? <MenuSpan>{status}</MenuSpan>        : <MenuHeaderSpan>Status</MenuHeaderSpan>}
+      {startTime     ? <MenuSpan>{timeFormat(startTime)}</MenuSpan> : <MenuHeaderSpan>Start</MenuHeaderSpan>}
+      {callingNumber ? <MenuSpan>{callingNumber}</MenuSpan>         : <MenuHeaderSpan>From</MenuHeaderSpan>}
+      {agent         ? <MenuSpan>{agent}</MenuSpan>                 : <MenuHeaderSpan>Agent</MenuHeaderSpan>}
+      {status        ? <MenuSpan>{status}</MenuSpan>                : <MenuHeaderSpan>Status</MenuHeaderSpan>}
     </Menu.Item>
   );
 };
