@@ -7,9 +7,20 @@ import phoneNumberFormat from '../util/phone-number-format';
 const MenuHeaderSpan = props => (
   <span
     style={{
-      paddingRight: '24px',
+      flexShrink: 0,
       color: '#000000',
       fontWeight: 'bold',
+      ...props.style,
+    }}
+  >
+    {props.children}
+  </span>
+);
+
+const MenuSpan = props => (
+  <span
+    style={{
+      flexShrink: 0,
       ...props.style,
     }}
   >
@@ -52,10 +63,10 @@ export default props => {
               <MenuHeaderSpan style={{ flexGrow: 1 }}>Agent</MenuHeaderSpan>
             </React.Fragment>
           : <React.Fragment>
-              <span style={{ width: '5rem' }}>{timeFormat(start)}</span>
-              <span style={{ width: '5rem' }}>{stop ? timeFormat(stop) : ''}</span>
-              <span style={{ width: '8rem' }}>{phoneNumberFormat(callingNumber)}</span>
-              <span style={{ flexGrow: 1 }}>{agent}</span>
+              <MenuSpan style={{ width: '5rem' }}>{timeFormat(start)}</MenuSpan>
+              <MenuSpan style={{ width: '5rem' }}>{stop ? timeFormat(stop) : ''}</MenuSpan>
+              <MenuSpan style={{ width: '8rem' }}>{phoneNumberFormat(callingNumber)}</MenuSpan>
+              <MenuSpan style={{ flexGrow: 1 }}>{agent}</MenuSpan>
             </React.Fragment>
       }
     </Menu.Item>
