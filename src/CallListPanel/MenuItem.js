@@ -26,6 +26,20 @@ const MenuSpan = props => (
   </span>
 );
 
+const Status = props => (
+  <span
+    style={{
+      padding: '0.5rem 0.75rem',
+      borderRadius: '0.25rem',
+      background: props.status === 'in-progress' ? '#ADFF87' : '#767676',
+      color: props.status === 'in-progress' ? '#365C06' : '#FFFFFF',
+    }}
+  >{
+    // Capitalize first letter and replace hyphens with spaces
+    props.status.charAt(0).toUpperCase() + props.status.replace('-', ' ').slice(1)
+  }</span>
+);
+
 export default props => {
 
   // Split props used in this component from props to be handed down
@@ -60,7 +74,7 @@ export default props => {
               <MenuSpan>{timeFormat(startTime)}</MenuSpan>
               <MenuSpan>{phoneNumberFormat(callingNumber)}</MenuSpan>
               <MenuSpan>{agent}</MenuSpan>
-              <MenuSpan>{status}</MenuSpan>
+              <Status status={status} />
             </React.Fragment>
       }
     </Menu.Item>
