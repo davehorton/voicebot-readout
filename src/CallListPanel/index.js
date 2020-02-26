@@ -41,6 +41,7 @@ export default class CallListPanel extends Component {
             this.props.calls.map((call, i) => (
               <MenuItem key={call.uuid}
                 start={call.start}
+                stop={call.stop}
                 callingNumber={call.callingNumber}
                 agent={call.agent}
                 status={call.status}
