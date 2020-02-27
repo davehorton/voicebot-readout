@@ -28,6 +28,20 @@ const MenuSpan = props => (
   </span>
 );
 
+const Status = props => (
+  <span
+    style={{
+      padding: '0.5rem',
+      marginLeft: '-18px',
+      border: '2px solid rgba(73, 129, 0, 0.8)',
+      borderRadius: '0.25rem',
+      color: '#498100',
+    }}
+  >
+    In Progress
+  </span>
+);
+
 export default props => {
 
   // Split props used in this component from props to be handed down
@@ -57,14 +71,20 @@ export default props => {
       {
         props.header
           ? <React.Fragment>
-              <MenuHeaderSpan style={{ width: '5rem' }}>Start</MenuHeaderSpan>
-              <MenuHeaderSpan style={{ width: '5rem' }}>End</MenuHeaderSpan>
+              <MenuHeaderSpan style={{ width: '5.5rem' }}>Start</MenuHeaderSpan>
+              <MenuHeaderSpan style={{ width: '5.5rem' }}>End</MenuHeaderSpan>
               <MenuHeaderSpan style={{ width: '8rem' }}>From</MenuHeaderSpan>
               <MenuHeaderSpan style={{ flexGrow: 1 }}>Agent</MenuHeaderSpan>
             </React.Fragment>
           : <React.Fragment>
-              <MenuSpan style={{ width: '5rem' }}>{timeFormat(start)}</MenuSpan>
-              <MenuSpan style={{ width: '5rem' }}>{stop ? timeFormat(stop) : ''}</MenuSpan>
+              <MenuSpan style={{ width: '5.5rem' }}>{timeFormat(start)}</MenuSpan>
+              <MenuSpan style={{ width: '5.5rem' }}>
+                {
+                  stop
+                    ? timeFormat(stop)
+                    : <Status/>
+                }
+              </MenuSpan>
               <MenuSpan style={{ width: '8rem' }}>{phoneNumberFormat(callingNumber)}</MenuSpan>
               <MenuSpan style={{
                 flexGrow: 1,
