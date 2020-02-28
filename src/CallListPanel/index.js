@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import { Icon, Menu } from 'antd';
 import MenuItem from './MenuItem';
+import ConfigureServer from './ConfigureServer';
 
 export default class CallListPanel extends Component {
   constructor() {
@@ -24,13 +25,9 @@ export default class CallListPanel extends Component {
           boxShadow: '0 0 2px rgba(0, 0, 0, 0.15), 0 0 1rem rgba(0, 0, 0, 0.05)',
         }}
       >
-        <Icon
-          type="setting"
-          style={{
-            margin: '24px 24px 16px',
-            opacity: 0.65,
-            fontSize: '26px',
-          }}
+        <ConfigureServer
+          serverUrl={this.props.serverUrl}
+          changeServerUrl={this.props.changeServerUrl}
         />
 
         <Menu
