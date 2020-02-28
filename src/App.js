@@ -46,6 +46,10 @@ class App extends Component {
   }
 
   selectCall(uuid) {
+    this.ws.send(JSON.stringify({
+      "type": "unsubscribe",
+      "uuid": this.state.selectedCall,
+    }));
     this.setState({
       selectedCall: uuid,
       transcriptEvents: [],
