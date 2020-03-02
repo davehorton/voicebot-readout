@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
-import { Icon, Menu } from 'antd';
+import { Menu } from 'antd';
 import MenuItem from './MenuItem';
 import ConfigureServer from './ConfigureServer';
 
